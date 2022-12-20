@@ -1,4 +1,5 @@
 import pMap from 'p-map'
+import unescape from 'unescape'
 
 import * as types from './types'
 
@@ -26,7 +27,7 @@ export async function getEmbeddingsForVideoTranscript({
   const { videoId } = transcript
 
   let pendingVectors: PineconeCaptionVectorPending[] = []
-  let currentParts: types.TranscriptPart[] = []
+  let currentStart = ''
   let currentNumTokensEstimate = 0
   let currentInput = ''
   let currentPartIndex = 0
@@ -38,17 +39,21 @@ export async function getEmbeddingsForVideoTranscript({
     isDone = currentPartIndex >= transcript.parts.length
 
     const part = transcript.parts[currentPartIndex]
-    const text = part?.text
+    const text = unescape(part?.text).replaceAll('[Music]', '')
     const numTokens = getNumTokensEstimate(text)
 
     if (!isDone && currentNumTokensEstimate + numTokens < maxInputTokens) {
+      if (!currentStart) {
+        currentStart = part.start
+      }
+
       currentNumTokensEstimate += numTokens
-      currentInput = `${currentInput} ${currentInput}`
-      currentParts.push(part)
+      currentInput = `${currentInput} ${text}`
 
       ++currentPartIndex
     } else {
-      if (isDone && !currentInput.trim()) {
+      currentInput = currentInput.trim()
+      if (isDone && !currentInput) {
         break
       }
 
@@ -58,15 +63,16 @@ export async function getEmbeddingsForVideoTranscript({
         metadata: {
           title,
           videoId,
-          parts: currentParts
+          text: currentInput,
+          start: currentStart
         }
       }
 
       pendingVectors.push(currentVector)
 
       // reset current batch
-      currentParts = []
       currentNumTokensEstimate = 0
+      currentStart = ''
       currentInput = ''
     }
   } while (!isDone)
@@ -76,7 +82,7 @@ export async function getEmbeddingsForVideoTranscript({
     pendingVectors,
     async (pendingVector) => {
       const { data: embed } = await openai.createEmbedding({
-        input: currentInput,
+        input: pendingVector.input,
         model
       })
 

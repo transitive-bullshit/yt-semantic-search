@@ -36,14 +36,23 @@ export async function upsertVideoTranscriptsForPlaylist(
 
   return (
     await pMap(
-      videos,
+      videos.slice(1),
       async (video) => {
         try {
+          console.log('processing video', video.id, video.title)
           const videoEmbeddings = await getEmbeddingsForVideoTranscript({
             transcript: video.transcript,
             title: video.title,
             openai
           })
+
+          console.log(
+            'video',
+            video.id,
+            'upserting',
+            videoEmbeddings.length,
+            'vectors'
+          )
 
           await pinecone.upsert({
             vectors: videoEmbeddings

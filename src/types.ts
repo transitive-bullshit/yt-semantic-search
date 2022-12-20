@@ -68,7 +68,8 @@ export interface PlaylistDetailsWithTranscripts extends PlaylistDetails {
 export type PineconeCaptionMetadata = {
   title: string
   videoId: string
-  parts: TranscriptPart[]
+  text: string
+  start: string
 }
 
 export type PineconeCaptionVector = {

@@ -28,6 +28,13 @@ async function main() {
     namespace: process.env.PINECONE_NAMESPACE
   })
 
+  // const { data: embed } = await openai.createEmbedding({
+  //   input: 'nala is so cute',
+  //   model: 'text-embedding-ada-002'
+  // })
+  // console.log(embed.data[0].embedding.length)
+  // return
+
   const playlistId = 'PLn5MTSAqaf8peDZQ57QkJBzewJU1aUokl'
   const playlistDetailsWithTranscripts: types.PlaylistDetailsWithTranscripts =
     JSON.parse(await fs.readFile(`out/${playlistId}.json`, 'utf-8'))
