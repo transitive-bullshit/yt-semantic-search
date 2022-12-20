@@ -2,7 +2,7 @@ import { defineConfig } from 'tsup'
 
 export default defineConfig([
   {
-    entry: ['src/index.ts'],
+    entry: ['src/sever/index.ts'],
     outDir: 'build',
     target: 'node16',
     platform: 'node',

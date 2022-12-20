@@ -7,28 +7,14 @@
   "repository": "transitive-bullshit/yt-channel-search",
   "license": "MIT",
   "type": "module",
-  "source": "./src/index.ts",
-  "types": "./build/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./build/index.js",
-      "types": "./build/index.d.ts",
-      "default": "./build/index.js"
-    }
-  },
-  "files": [
-    "build"
-  ],
   "engines": {
     "node": ">=16"
   },
   "scripts": {
-    "build": "tsup",
-    "dev": "tsup --watch",
-    "clean": "del build",
-    "prebuild": "run-s clean",
-    "predev": "run-s clean",
-    "pretest": "run-s build",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "build:server": "tsup",
     "docs": "typedoc",
     "prepare": "husky install",
     "pre-commit": "lint-staged",
@@ -36,25 +22,53 @@
     "test:prettier": "prettier '**/*.{js,jsx,ts,tsx}' --check"
   },
   "dependencies": {
+    "@next/bundle-analyzer": "^13.0.7",
+    "@radix-ui/react-dialog": "^1.0.2",
+    "clsx": "^1.2.1",
+    "framer-motion": "^7.10.3",
     "googleapis": "^109.0.1",
     "got": "^12.5.3",
+    "lucide-react": "0.105.0-alpha.4",
+    "next": "^13.0.7",
+    "next-themes": "^0.2.1",
     "openai": "^3.1.0",
     "p-map": "^5.5.0",
     "pinecone-client": "^1.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-spinners": "^0.13.7",
+    "react-use": "^17.4.0",
+    "react-youtube": "^10.1.0",
+    "rehype-format": "^4.0.1",
+    "rehype-raw": "^6.1.1",
+    "rehype-stringify": "^9.0.3",
+    "remark-gfm": "^3.0.1",
+    "remark-parse": "^10.0.1",
+    "remark-rehype": "^10.1.0",
     "unescape": "^1.0.1",
-    "xml2js": "^0.4.23"
+    "unified": "^10.1.2",
+    "unstated-next": "^1.1.0",
+    "xml2js": "^0.4.23",
+    "zod": "^3.20.2"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.8",
     "@trivago/prettier-plugin-sort-imports": "^4.0.0",
     "@types/node": "^18.11.9",
+    "@types/react": "18.0.26",
+    "@types/react-dom": "^18.0.9",
+    "autoprefixer": "^10.4.13",
     "ava": "^5.1.0",
-    "del-cli": "^5.0.0",
     "dotenv-safe": "^8.2.0",
+    "eslint": "^8.30.0",
+    "eslint-config-next": "^13.0.7",
     "husky": "^8.0.2",
     "lint-staged": "^13.0.3",
     "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.20",
+    "postcss-import": "^15.1.0",
     "prettier": "^2.8.0",
-    "tsup": "^6.5.0",
+    "tailwindcss": "^3.2.4",
     "tsx": "^3.12.1",
     "typedoc": "^0.23.21",
     "typedoc-plugin-markdown": "^3.13.6",
@@ -76,7 +90,14 @@
   "keywords": [
     "youtube",
     "search",
+    "playlist",
+    "all-in",
+    "all in",
+    "podcast",
     "openai",
-    "pinecone"
+    "pinecone",
+    "ai",
+    "vector",
+    "embedding"
   ]
 }

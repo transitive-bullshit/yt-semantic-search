@@ -1,6 +1,8 @@
 import pMap from 'p-map'
 import unescape from 'unescape'
 
+import * as config from '@/lib/config'
+
 import * as types from './types'
 
 type PineconeCaptionVectorPending = {
@@ -13,7 +15,7 @@ export async function getEmbeddingsForVideoTranscript({
   transcript,
   title,
   openai,
-  model = 'text-embedding-ada-002',
+  model = config.openaiEmbeddingModel,
   maxInputTokens = 100, // TODO???
   concurrency = 4
 }: {

@@ -1,8 +1,11 @@
+import * as fs from 'node:fs/promises'
+
 import dotenv from 'dotenv-safe'
 import { Configuration, OpenAIApi } from 'openai'
 import { PineconeClient } from 'pinecone-client'
 
-import * as types from '../src/types'
+import * as types from '@/server/types'
+import { upsertVideoTranscriptsForPlaylist } from '@/server/pinecone'
 
 dotenv.config()
 
@@ -19,20 +22,14 @@ async function main() {
     namespace: process.env.PINECONE_NAMESPACE
   })
 
-  const query = 'wisconsin'
-  const { data: embed } = await openai.createEmbedding({
-    input: query,
-    model: 'text-embedding-ada-002'
-  })
+  const playlistId = 'PLn5MTSAqaf8peDZQ57QkJBzewJU1aUokl'
+  const playlistDetailsWithTranscripts: types.PlaylistDetailsWithTranscripts =
+    JSON.parse(await fs.readFile(`out/${playlistId}.json`, 'utf-8'))
 
-  const res = await pinecone.query({
-    vector: embed.data[0].embedding,
-    topK: 10,
-    includeMetadata: true,
-    includeValues: false
+  await upsertVideoTranscriptsForPlaylist(playlistDetailsWithTranscripts, {
+    openai,
+    pinecone
   })
-
-  console.log(JSON.stringify(res, null, 2))
 }
 
 main().catch((err) => {

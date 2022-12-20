@@ -1,6 +1,5 @@
 import type { youtube_v3 } from 'googleapis'
 import type { OpenAIApi } from 'openai'
-import type { Vector } from 'pinecone-client'
 import type { PineconeClient as PineconeClientGeneric } from 'pinecone-client'
 
 type YouTubeClient = youtube_v3.Youtube
