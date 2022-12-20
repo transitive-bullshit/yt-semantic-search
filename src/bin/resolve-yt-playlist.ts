@@ -1,5 +1,6 @@
 import * as fs from 'node:fs/promises'
 
+import 'cross-fetch/polyfill'
 import dotenv from 'dotenv-safe'
 import { google } from 'googleapis'
 

@@ -1,3 +1,4 @@
+import 'cross-fetch/polyfill'
 import dotenv from 'dotenv-safe'
 import { Configuration, OpenAIApi } from 'openai'
 import { PineconeClient } from 'pinecone-client'

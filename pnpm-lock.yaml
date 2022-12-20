@@ -11,6 +11,7 @@ specifiers:
   autoprefixer: ^10.4.13
   ava: ^5.1.0
   clsx: ^1.2.1
+  cross-fetch: ^3.1.5
   dotenv-safe: ^8.2.0
   eslint: ^8.30.0
   eslint-config-next: ^13.0.7
@@ -29,6 +30,7 @@ specifiers:
   postcss: ^8.4.20
   postcss-import: ^15.1.0
   prettier: ^2.8.0
+  quick-lru: ^6.1.1
   react: ^18.2.0
   react-dom: ^18.2.0
   react-spinners: ^0.13.7
@@ -40,6 +42,7 @@ specifiers:
   remark-gfm: ^3.0.1
   remark-parse: ^10.0.1
   remark-rehype: ^10.1.0
+  swr: ^2.0.0
   tailwindcss: ^3.2.4
   tsx: ^3.12.1
   typedoc: ^0.23.21
@@ -55,6 +58,7 @@ dependencies:
   '@next/bundle-analyzer': 13.0.7
   '@radix-ui/react-dialog': 1.0.2_ib3m5ricvtkl2cll7qpr2f6lvq
   clsx: 1.2.1
+  cross-fetch: 3.1.5
   framer-motion: 7.10.3_biqbaboplfbrettd7655fr4n2y
   googleapis: 109.0.1
   got: 12.5.3
@@ -64,6 +68,7 @@ dependencies:
   openai: 3.1.0
   p-map: 5.5.0
   pinecone-client: 1.0.0
+  quick-lru: 6.1.1
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-spinners: 0.13.7_biqbaboplfbrettd7655fr4n2y
@@ -75,6 +80,7 @@ dependencies:
   remark-gfm: 3.0.1
   remark-parse: 10.0.1
   remark-rehype: 10.1.0
+  swr: 2.0.0_react@18.2.0
   unescape: 1.0.1
   unified: 10.1.2
   unstated-next: 1.1.0
@@ -1726,6 +1732,14 @@ packages:
     resolution: {integrity: sha512-VVXcDpp/xJ21KdULRq/lXdLzQAtX7+37LzpyfFM973il0tWSsDEoyzG38G14AjTpK9VTfiNM9jnFauq/CpaWGQ==}
     requiresBuild: true
     dev: true
+
+  /cross-fetch/3.1.5:
+    resolution: {integrity: sha512-lvb1SBsI0Z7GDwmuid+mU3kWVBwTVUbe7S0H52yaaAdQOXq2YktTCZdlAcNKFzE6QtRz0snpw9bNiPeOIkkQvw==}
+    dependencies:
+      node-fetch: 2.6.7
+    transitivePeerDependencies:
+      - encoding
+    dev: false
 
   /cross-spawn/6.0.5:
     resolution: {integrity: sha512-eTVLrBSt7fjbDygz805pMnstIs2VTBNkRm0qxZd+M7A5XDdxVRWO5MxGBXZhjY4cqLYLdtrGqRf8mBPmzwSpWQ==}
@@ -4876,6 +4890,11 @@ packages:
     resolution: {integrity: sha512-WuyALRjWPDGtt/wzJiadO5AXY+8hZ80hVpe6MyivgraREW751X3SbhRvG3eLKOYN+8VEvqLcf3wdnt44Z4S4SA==}
     engines: {node: '>=10'}
 
+  /quick-lru/6.1.1:
+    resolution: {integrity: sha512-S27GBT+F0NTRiehtbrgaSE1idUAJ5bX8dPAQTdylEyNlrdcH5X4Lz7Edz3DYzecbsCluD5zO8ZNEe04z3D3u6Q==}
+    engines: {node: '>=12'}
+    dev: false
+
   /react-dom/18.2.0_react@18.2.0:
     resolution: {integrity: sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==}
     peerDependencies:
@@ -5617,6 +5636,16 @@ packages:
     engines: {node: '>= 0.4'}
     dev: true
 
+  /swr/2.0.0_react@18.2.0:
+    resolution: {integrity: sha512-IhUx5yPkX+Fut3h0SqZycnaNLXLXsb2ECFq0Y29cxnK7d8r7auY2JWNbCW3IX+EqXUg3rwNJFlhrw5Ye/b6k7w==}
+    engines: {pnpm: '7'}
+    peerDependencies:
+      react: ^16.11.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+      use-sync-external-store: 1.2.0_react@18.2.0
+    dev: false
+
   /synckit/0.8.4:
     resolution: {integrity: sha512-Dn2ZkzMdSX827QbowGbU/4yjWuvNaCoScLLoMo/yKbu+P4GBR6cRGKZH27k6a9bRzdqcyd1DE96pQtQ6uNkmyw==}
     engines: {node: ^14.18.0 || >=16.0.0}
@@ -5954,6 +5983,14 @@ packages:
       detect-node-es: 1.1.0
       react: 18.2.0
       tslib: 2.4.1
+    dev: false
+
+  /use-sync-external-store/1.2.0_react@18.2.0:
+    resolution: {integrity: sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /util-deprecate/1.0.2:
