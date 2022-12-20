@@ -1,21 +1,15 @@
 import * as fs from 'node:fs/promises'
 
 import dotenv from 'dotenv-safe'
-// import { google } from 'googleapis'
 import { Configuration, OpenAIApi } from 'openai'
 import { PineconeClient } from 'pinecone-client'
 
-import * as types from './types'
-import { upsertVideoTranscriptsForPlaylist } from './pinecone'
+import * as types from '../src/types'
+import { upsertVideoTranscriptsForPlaylist } from '../src/pinecone'
 
 dotenv.config()
 
 async function main() {
-  // const youtube = google.youtube({
-  //   version: 'v3',
-  //   auth: process.env.YOUTUBE_API_KEY
-  // })
-
   const openai = new OpenAIApi(
     new Configuration({
       apiKey: process.env.OPENAI_API_KEY
@@ -27,13 +21,6 @@ async function main() {
     baseUrl: process.env.PINECONE_BASE_URL,
     namespace: process.env.PINECONE_NAMESPACE
   })
-
-  // const { data: embed } = await openai.createEmbedding({
-  //   input: 'nala is so cute',
-  //   model: 'text-embedding-ada-002'
-  // })
-  // console.log(embed.data[0].embedding.length)
-  // return
 
   const playlistId = 'PLn5MTSAqaf8peDZQ57QkJBzewJU1aUokl'
   const playlistDetailsWithTranscripts: types.PlaylistDetailsWithTranscripts =

@@ -3,8 +3,8 @@ import * as fs from 'node:fs/promises'
 import dotenv from 'dotenv-safe'
 import { google } from 'googleapis'
 
-import * as types from './types'
-import * as yt from './youtube'
+import * as types from '../src/types'
+import * as yt from '../src/youtube'
 
 dotenv.config()
 

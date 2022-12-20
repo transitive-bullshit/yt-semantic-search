@@ -39,7 +39,11 @@ export async function getEmbeddingsForVideoTranscript({
     isDone = currentPartIndex >= transcript.parts.length
 
     const part = transcript.parts[currentPartIndex]
-    const text = unescape(part?.text).replaceAll('[Music]', '')
+    const text = unescape(part?.text)
+      .replaceAll('[Music]', '')
+      .replaceAll(/[\t\n]/, ' ')
+      .replaceAll('  ', ' ')
+      .trim()
     const numTokens = getNumTokensEstimate(text)
 
     if (!isDone && currentNumTokensEstimate + numTokens < maxInputTokens) {
