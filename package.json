@@ -36,7 +36,6 @@
     "test:prettier": "prettier '**/*.{js,jsx,ts,tsx}' --check"
   },
   "dependencies": {
-    "cheerio": "1.0.0-rc.12",
     "googleapis": "^109.0.1",
     "got": "^12.5.3",
     "openai": "^3.1.0",
