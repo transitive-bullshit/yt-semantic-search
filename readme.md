@@ -111,8 +111,7 @@ Feel free to send me feedback, either on [GitHub](https://github.com/transitive-
 ## Credit
 
 - Inspired by [Riley Tomasek's project](https://twitter.com/rileytomasek/status/1603854647575384067) for searching the [Huberman YouTube Channel](https://www.youtube.com/@hubermanlab)
-
-Note that this project is not affiliated with the All-In Podcast. It just pulls data from their [YouTube channel](https://www.youtube.com/channel/UCESLZhusAkFfsNsApnjF_Cg) and processes it using AI.
+- Note that this project is not affiliated with the All-In Podcast. It just pulls data from their [YouTube channel](https://www.youtube.com/channel/UCESLZhusAkFfsNsApnjF_Cg) and processes it using AI.
 
 ## License
 
