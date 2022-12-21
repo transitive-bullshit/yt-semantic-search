@@ -8,6 +8,7 @@ specifiers:
   '@types/node': ^18.11.9
   '@types/react': 18.0.26
   '@types/react-dom': ^18.0.9
+  '@vercel/analytics': ^0.1.6
   autoprefixer: ^10.4.13
   ava: ^5.1.0
   clsx: ^1.2.1
@@ -60,6 +61,7 @@ specifiers:
 dependencies:
   '@google-cloud/storage': 6.8.0
   '@next/bundle-analyzer': 13.0.7
+  '@vercel/analytics': 0.1.6_react@18.2.0
   clsx: 1.2.1
   delay: 5.0.0
   dequal: 2.0.3
@@ -961,6 +963,14 @@ packages:
       '@typescript-eslint/types': 5.47.0
       eslint-visitor-keys: 3.3.0
     dev: true
+
+  /@vercel/analytics/0.1.6_react@18.2.0:
+    resolution: {integrity: sha512-zNd5pj3iDvq8IMBQHa1YRcIteiw6ZiPB8AsONHd8ieFXlNpLqhXfIYnf4WvTfZ7S1NSJ++mIM14aJnNac/VMXQ==}
+    peerDependencies:
+      react: ^16.8||^17||^18
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /@xobotyi/scrollbar-width/1.9.5:
     resolution: {integrity: sha512-N8tkAACJx2ww8vFMneJmaAgmjAG1tnVBZJRLRcx061tmsLRZHSEZSLuGWnwPtunsSLvSqXQ2wfp7Mgqg1I+2dQ==}
