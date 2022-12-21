@@ -44,9 +44,13 @@ You can use it to power advanced search across _any YouTube channel or playlist_
 ## Screenshots
 
 <p align="center">
-  <img alt="Desktop light mode" src="/public/images/screenshot-desktop-light.jpg" width="45%">
+  <a href="https://all-in-on-ai.vercel.app">
+    <img alt="Desktop light mode" src="/public/images/screenshot-desktop-light.jpg" width="45%">
+  </a>
 &nbsp; &nbsp; &nbsp; &nbsp;
-  <img alt="Desktop dark mode" src="/public/images/screenshot-desktop-dark.jpg" width="45%">
+  <a href="https://all-in-on-ai.vercel.app">
+    <img alt="Desktop dark mode" src="/public/images/screenshot-desktop-dark.jpg" width="45%">
+  </a>
 </p>
 
 ## How It Works
