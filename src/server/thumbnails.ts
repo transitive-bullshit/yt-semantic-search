@@ -3,6 +3,15 @@ import puppeteer, { type Browser, executablePath } from 'puppeteer'
 
 import * as types from '@/server/types'
 
+/**
+ * Generates N thumbnail images from a YouTube video using headless Puppeteer.
+ *
+ * The YouTube video is loaded in an iframe embed, and we use the YouTube Player
+ * API to `seekTo` each timestamp in turn.
+ *
+ * Resulting images are stored to disk, uploaded to a Google Cloud bucket, and
+ * processed with `lqip-modern` to generate aesthetically-pleasing preview images.
+ */
 export async function getThumbnailsForVideo({
   videoId,
   timestamps,
