@@ -1,14 +1,14 @@
 {
-  "name": "yt-channel-search",
-  "version": "0.0.1",
+  "name": "yt-semantic-search",
+  "version": "1.0.0",
   "private": true,
-  "description": "TODO",
+  "description": "OpenAI-powered semantic search for any YouTube playlist – featuring the All-In Podcast.",
   "author": "Travis Fischer <travis@transitivebullsh.it>",
   "repository": "transitive-bullshit/yt-channel-search",
   "license": "MIT",
   "type": "module",
   "engines": {
-    "node": ">=16"
+    "node": ">=18"
   },
   "scripts": {
     "dev": "next dev",
