@@ -20,6 +20,10 @@
   align-items: center;
 }
 
+.emptyResults p {
+  margin-bottom: 1em;
+}
+
 .socialImageWrapper {
   width: 100%;
   flex: 1;

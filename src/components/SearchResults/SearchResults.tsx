@@ -3,6 +3,7 @@
 import * as React from 'react'
 import cs from 'clsx'
 import Image from 'next/image'
+import Link from 'next/link'
 
 import { LoadingSpinner } from '@/components/LoadingSpinner/LoadingSpinner'
 import { SearchResultsList } from '@/components/SearchResultsList/SearchResultsList'
@@ -42,9 +43,50 @@ export const SearchResults: React.FC = () => {
 }
 
 export const EmptyQuery: React.FC = () => {
+  const { setQuery, setDebouncedQuery } = Search.useContainer()
+
   return (
     <div className={styles.emptyResults}>
       <p>Search any topic the besties have covered on the pod.</p>
+
+      <p>
+        Examples:{' '}
+        <Link
+          className='link'
+          href='/?query=sweater+karen'
+          onClick={(e) => {
+            e.preventDefault()
+            setQuery('sweater karen')
+            setDebouncedQuery('sweater karen')
+          }}
+        >
+          sweater karen
+        </Link>
+        ,&nbsp;
+        <Link
+          className='link'
+          href='/?query=great+poker+story'
+          onClick={(e) => {
+            e.preventDefault()
+            setQuery('great poker story')
+            setDebouncedQuery('great poker story')
+          }}
+        >
+          great poker story
+        </Link>
+        ,&nbsp;
+        <Link
+          className='link'
+          href='/?query=crypto'
+          onClick={(e) => {
+            e.preventDefault()
+            setQuery('crypto')
+            setDebouncedQuery('crypto')
+          }}
+        >
+          crypto
+        </Link>
+      </p>
 
       <div className={styles.socialImageWrapper}>
         <Image

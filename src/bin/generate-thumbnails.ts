@@ -41,7 +41,10 @@ async function main() {
           ids
         })
 
-        const docs = Object.values(vectors) as types.PineconeVector[]
+        // get the docs which don't already have thumbnails
+        const docs = (Object.values(vectors) as types.PineconeVector[]).filter(
+          (doc) => !doc.metadata.thumbnail
+        )
         docs.sort((a, b) => a.id.localeCompare(b.id))
         const timestamps = docs.map((doc) => doc.metadata.start)
 

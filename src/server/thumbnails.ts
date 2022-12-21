@@ -1,4 +1,5 @@
 import lqip from 'lqip-modern'
+import pRetry from 'p-retry'
 import puppeteer, { type Browser, executablePath } from 'puppeteer'
 
 import * as types from '@/server/types'
@@ -123,11 +124,19 @@ export async function getThumbnailsForVideo({
       if (storage && bucket) {
         const preview = await lqip(buffer)
 
-        // TODO: add retry logic to upload
-        await storage.bucket(bucket).upload(path, {
-          destination: name,
-          contentType: 'image/jpeg'
-        })
+        await pRetry(
+          () =>
+            uploadFileToBucket({
+              path,
+              name,
+              storage,
+              bucket,
+              contentType: 'image/jpeg'
+            }),
+          {
+            retries: 3
+          }
+        )
 
         const url = `https://storage.googleapis.com/${bucket}/${name}`
         console.log(url)
@@ -162,6 +171,27 @@ export async function getThumbnailsForVideo({
   }
 
   return output
+}
+
+interface UploadFileToBucketOptions {
+  name: string
+  path: string
+  storage: types.GCPStorage
+  bucket: string
+  contentType?: string
+}
+
+async function uploadFileToBucket({
+  path,
+  name,
+  storage,
+  bucket,
+  contentType = 'image/jpeg'
+}: UploadFileToBucketOptions) {
+  return storage.bucket(bucket).upload(path, {
+    destination: name,
+    contentType
+  })
 }
 
 function getYouTubePlayerHtml({

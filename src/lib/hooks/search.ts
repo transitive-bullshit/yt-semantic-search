@@ -116,6 +116,9 @@ function useSearch() {
     onChangeQuery,
     onClearQuery,
 
+    setQuery,
+    setDebouncedQuery,
+
     error,
     isEmpty,
     isLoading,

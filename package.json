@@ -37,6 +37,7 @@
     "next-themes": "^0.2.1",
     "openai": "^3.1.0",
     "p-map": "^5.5.0",
+    "p-retry": "^5.1.2",
     "pinecone-client": "^1.0.0",
     "pretty-ms": "^8.0.0",
     "puppeteer": "^19.4.1",
