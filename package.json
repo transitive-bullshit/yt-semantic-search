@@ -22,6 +22,7 @@
     "test:prettier": "prettier '**/*.{js,jsx,ts,tsx}' --check"
   },
   "dependencies": {
+    "@google-cloud/storage": "^6.8.0",
     "@next/bundle-analyzer": "^13.0.7",
     "@radix-ui/react-dialog": "^1.0.2",
     "clsx": "^1.2.1",
