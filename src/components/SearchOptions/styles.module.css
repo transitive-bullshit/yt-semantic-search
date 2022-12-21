@@ -92,7 +92,7 @@
 }
 
 @media (max-width: 700px) {
-  .movieSearchOptions {
+  .searchOptions {
     --gap: calc(max(8px, min(24px, 2vh)));
     margin-bottom: var(--gap);
   }

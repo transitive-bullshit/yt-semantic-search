@@ -32,7 +32,7 @@ export default createAPIHandler<SearchQuery, never, SearchResult[]>(
   },
   async function searchHandler(req, res, { query }) {
     const input = query.query
-    const limit = query.limit ?? 10
+    const limit = query.limit ?? 25
 
     const inputL = input.toLowerCase().trim()
     let searchResults: SearchResult[] = []
@@ -72,10 +72,12 @@ export default createAPIHandler<SearchQuery, never, SearchResult[]>(
         // extract direct match highlights
         let html = result.metadata.text
         for (const token of tokens) {
-          html = html.replaceAll(
-            new RegExp(`\\b(${token})\\b`, 'ig'),
-            `<span class="match">$1</span>`
-          )
+          html = html
+            .replaceAll(/\s+/g, ' ')
+            .replaceAll(
+              new RegExp(`\\b(${token})\\b`, 'ig'),
+              `<span class="match">$1</span>`
+            )
         }
         searchResult.matchedHtml = html
 

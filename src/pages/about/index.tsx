@@ -26,7 +26,8 @@ You can use it to power advanced search across _any YouTube channel or playlist_
 - [luxury sweater chamath](/?query=luxury+sweater+chamath)
 - [phil helmuth](/?query=phil+helmuth)
 - [intellectual honesty](/?query=intellectual+honesty)
-- [sbf](/?query=sbf)
+- [sbf ftx](/?query=sbf+ftx)
+- [science corner](/?query=science+corner)
 
 ## How It Works
 

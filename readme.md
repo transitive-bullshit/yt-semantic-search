@@ -35,7 +35,8 @@ You can use it to power advanced search across _any YouTube channel or playlist_
 - [luxury sweater chamath](https://all-in-on-ai.vercel.app/?query=luxury+sweater+chamath)
 - [phil helmuth](https://all-in-on-ai.vercel.app/?query=phil+helmuth)
 - [intellectual honesty](https://all-in-on-ai.vercel.app/?query=intellectual+honesty)
-- [sbf](https://all-in-on-ai.vercel.app/?query=sbf)
+- [sbf ftx](https://all-in-on-ai.vercel.app/?query=sbf+ftx)
+- [science corner](https://all-in-on-ai.vercel.app/?query=science+corner)
 
 ## How It Works
 

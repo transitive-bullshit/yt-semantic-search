@@ -34,8 +34,6 @@ export const SearchOptions: React.FC = () => {
   return (
     <form className={styles.searchOptions} onSubmit={onSubmit}>
       <div className={cs(styles.field, styles.queryField)}>
-        <label htmlFor='query'>Search</label>
-
         <div className={cs(styles.searchInput)}>
           <SearchIcon className={styles.searchIcon} />
 
@@ -43,6 +41,7 @@ export const SearchOptions: React.FC = () => {
             type='text'
             name='query'
             id='query'
+            placeholder='Search'
             className={cs(styles.input, styles.textInput)}
             value={query}
             onChange={onChangeQuery}

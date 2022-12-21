@@ -86,6 +86,18 @@ export const EmptyQuery: React.FC = () => {
         >
           crypto
         </Link>
+        ,&nbsp;
+        <Link
+          className='link'
+          href='/?query=science+corner'
+          onClick={(e) => {
+            e.preventDefault()
+            setQuery('science corner')
+            setDebouncedQuery('science corner')
+          }}
+        >
+          science corner
+        </Link>
       </p>
 
       <div className={styles.socialImageWrapper}>
