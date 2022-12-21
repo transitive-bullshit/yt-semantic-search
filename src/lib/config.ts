@@ -13,7 +13,7 @@ export const author = 'Travis Fischer'
 export const twitter = 'transitive_bs'
 export const twitterUrl = `https://twitter.com/${twitter}`
 export const githubRepoUrl =
-  'https://github.com/transitive-bullshit/yt-channel-search'
+  'https://github.com/transitive-bullshit/yt-semantic-search'
 export const githubSponsorsUrl =
   'https://github.com/sponsors/transitive-bullshit'
 export const copyright = `Copyright 2022 ${author}`
