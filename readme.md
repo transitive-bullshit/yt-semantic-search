@@ -22,7 +22,7 @@
 
 I love the [All-In Podcast](https://www.youtube.com/channel/UCESLZhusAkFfsNsApnjF_Cg). But search and discovery with podcasts can be really challenging.
 
-That's why I built this project.. and I also wanted to play around with some cool AI stuff...
+I built this project to solve this problem... and I also wanted to play around with cool AI stuff. 😂
 
 This project uses the latest models from [OpenAI](https://openai.com/) to build a semantic search index across every episode of the Pod. It allows you to find your favorite moments with Google-level accuracy and rewatch the exact clips you're interested in.
 
