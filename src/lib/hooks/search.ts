@@ -2,11 +2,10 @@
 
 import * as React from 'react'
 import { useRouter } from 'next/router'
-import { useDebounce, useSearchParam } from 'react-use'
+import { useDebounce } from 'react-use'
 import useSWR from 'swr'
 import { createContainer } from 'unstated-next'
 
-// import { StringParam, useQueryParam, withDefault } from 'use-query-params'
 import * as types from '@/types'
 
 const fetcher = ({
@@ -85,6 +84,7 @@ function useSearch() {
     setDebouncedQuery('')
   }, [])
 
+  // Update the route's searchParams ot match
   React.useEffect(() => {
     const newQuery = {
       ...router.query,

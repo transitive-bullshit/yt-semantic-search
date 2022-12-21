@@ -41,7 +41,6 @@
     "react-dom": "^18.2.0",
     "react-spinners": "^0.13.7",
     "react-use": "^17.4.0",
-    "react-youtube": "^10.1.0",
     "rehype-format": "^4.0.1",
     "rehype-raw": "^6.1.1",
     "rehype-stringify": "^9.0.3",
