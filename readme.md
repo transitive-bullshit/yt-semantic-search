@@ -20,7 +20,9 @@
 
 ## Intro
 
-I love the [All-In Podcast](https://www.youtube.com/channel/UCESLZhusAkFfsNsApnjF_Cg). But podcasts make recall and discovery really challenging.
+I love the [All-In Podcast](https://www.youtube.com/channel/UCESLZhusAkFfsNsApnjF_Cg). But search and discovery with podcasts can be really challenging.
+
+That's why I built this project.. and I also wanted to play around with some cool AI stuff...
 
 This project uses the latest models from [OpenAI](https://openai.com/) to build a semantic search index across every episode of the Pod. It allows you to find your favorite moments with Google-level accuracy and rewatch the exact clips you're interested in.
 
@@ -42,7 +44,7 @@ You can use it to power advanced search across _any YouTube channel or playlist_
 
 Under the hood, it uses:
 
-- [OpenAI](https://openai.com) - We're using the brand new [text-embedding-ada-002](https://openai.com/blog/new-and-improved-embedding-model/) embedding model, which captures deeper information about text in a latent space with 1536 dimension
+- [OpenAI](https://openai.com) - We're using the brand new [text-embedding-ada-002](https://openai.com/blog/new-and-improved-embedding-model/) embedding model, which captures deeper information about text in a latent space with 1536 dimensions
   - This allows us to go beyond keyword search and search by higher-level topics.
 - [Pinecone](https://www.pinecone.io) - Hosted vector search which enables us to efficiently perform [k-NN searches](https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm) across these embeddings
 - [Vercel](https://vercel.com) - Hosting and API functions
