@@ -12,7 +12,7 @@ export function RootLayoutProviders({
   return (
     <ThemeProvider
       attribute='class'
-      defaultTheme='dark'
+      defaultTheme='light'
       disableTransitionOnChange
     >
       <MotionConfig reducedMotion='user'>{children}</MotionConfig>

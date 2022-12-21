@@ -2,13 +2,13 @@ import * as React from 'react'
 import Document, { Head, Html, Main, NextScript } from 'next/document'
 
 const htmlStyle: React.CSSProperties = {
-  colorScheme: 'dark'
+  colorScheme: 'light'
 }
 
 export default class MyDocument extends Document {
   render() {
     return (
-      <Html lang='en' dir='ltr' className='dark' style={htmlStyle}>
+      <Html lang='en' dir='ltr' className='light' style={htmlStyle}>
         <Head>
           <link rel='shortcut icon' href='/favicon.ico' />
         </Head>

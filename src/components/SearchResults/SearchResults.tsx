@@ -45,6 +45,20 @@ export const SearchResults: React.FC = () => {
 export const EmptyQuery: React.FC = () => {
   const { setQuery, setDebouncedQuery } = Search.useContainer()
 
+  const fakeNavigation = React.useCallback(
+    (query: string) => {
+      // router.push({
+      //   pathname: '/',
+      //   query: {
+      //     query
+      //   }
+      // })
+      setQuery(query)
+      setDebouncedQuery(query)
+    },
+    [setQuery, setDebouncedQuery]
+  )
+
   return (
     <div className={styles.emptyResults}>
       <p>Search any topic the besties have covered on the pod.</p>
@@ -56,8 +70,7 @@ export const EmptyQuery: React.FC = () => {
           href='/?query=sweater+karen'
           onClick={(e) => {
             e.preventDefault()
-            setQuery('sweater karen')
-            setDebouncedQuery('sweater karen')
+            fakeNavigation('sweater karen')
           }}
         >
           sweater karen
@@ -68,8 +81,7 @@ export const EmptyQuery: React.FC = () => {
           href='/?query=great+poker+story'
           onClick={(e) => {
             e.preventDefault()
-            setQuery('great poker story')
-            setDebouncedQuery('great poker story')
+            fakeNavigation('great poker story')
           }}
         >
           great poker story
@@ -80,8 +92,7 @@ export const EmptyQuery: React.FC = () => {
           href='/?query=crypto'
           onClick={(e) => {
             e.preventDefault()
-            setQuery('crypto')
-            setDebouncedQuery('crypto')
+            fakeNavigation('crypto')
           }}
         >
           crypto
@@ -92,8 +103,7 @@ export const EmptyQuery: React.FC = () => {
           href='/?query=science+corner'
           onClick={(e) => {
             e.preventDefault()
-            setQuery('science corner')
-            setDebouncedQuery('science corner')
+            fakeNavigation('science corner')
           }}
         >
           science corner
