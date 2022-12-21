@@ -16,6 +16,8 @@ TODO
 
 - Experiment with using [Whisper](https://github.com/m-bain/whisperX) for transcription
 - Inspired by https://twitter.com/rileytomasek/status/1603854647575384067
+- Example queries
+  - sweater karen
 
 ## License
 

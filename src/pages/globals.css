@@ -133,6 +133,17 @@ body {
   line-height: 1.3;
 }
 
+.match {
+  border-radius: 0.35em;
+  padding: 0.1em 0.25em;
+  margin: -0.1em -0.25em;
+  box-decoration-break: clone;
+  background: #fdf59d;
+  background: #bbebff;
+  font-weight: normal;
+  color: #000;
+}
+
 [data-radix-popper-content-wrapper] {
   z-index: 500 !important;
 }

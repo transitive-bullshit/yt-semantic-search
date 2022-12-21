@@ -37,8 +37,12 @@ export default createAPIHandler<SearchQuery, never, SearchResult[]>(
 
     const inputL = input.toLowerCase().trim()
     let searchResults: SearchResult[] = []
-
     if (inputL) {
+      const tokens = inputL
+        .split(/\s/)
+        .map((token) => token.trim())
+        .filter(Boolean)
+
       let inputEmbedding = embeddingCache.get(inputL)
 
       if (!inputEmbedding) {
@@ -58,9 +62,26 @@ export default createAPIHandler<SearchQuery, never, SearchResult[]>(
         includeValues: false
       })
 
-      searchResults = results.matches.map((result) =>
-        pick<SearchResult>(result, 'id', 'score', 'metadata')
-      )
+      searchResults = results.matches.map((result) => {
+        const searchResult = pick<Partial<SearchResult>>(
+          result,
+          'id',
+          'score',
+          'metadata'
+        )
+
+        // extract direct match highlights
+        let html = result.metadata.text
+        for (const token of tokens) {
+          html = html.replaceAll(
+            new RegExp(`\\b(${token})\\b`, 'ig'),
+            `<span class="match">$1</span>`
+          )
+        }
+        searchResult.matchedHtml = html
+
+        return searchResult as SearchResult
+      })
     }
 
     // add an extra long delay to accentuate any client-side swr cache misses

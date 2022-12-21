@@ -1,9 +1,12 @@
 'use client'
 
 import * as React from 'react'
+import { useRouter } from 'next/router'
+import { useDebounce, useSearchParam } from 'react-use'
 import useSWR from 'swr'
 import { createContainer } from 'unstated-next'
 
+// import { StringParam, useQueryParam, withDefault } from 'use-query-params'
 import * as types from '@/types'
 
 const fetcher = ({
@@ -21,14 +24,33 @@ const fetcher = ({
   ).then((res) => res.json())
 
 function useSearch() {
-  const [query, setQuery] = React.useState<string>()
+  const router = useRouter()
+  const [query, setQuery] = React.useState<string>('')
+  const [debouncedQuery, setDebouncedQuery] = React.useState('')
+
+  React.useEffect(() => {
+    const url = new URL(window.location.href)
+    const query = url.searchParams.get('query')
+    if (query) {
+      setQuery(query)
+      setDebouncedQuery(query)
+    }
+  }, [])
+
+  useDebounce(
+    () => {
+      setDebouncedQuery(query)
+    },
+    500,
+    [query]
+  )
 
   const body = React.useMemo<types.SearchQuery>(
     () => ({
-      query,
+      query: debouncedQuery,
       limit: 10
     }),
-    [query]
+    [debouncedQuery]
   )
 
   const {
@@ -43,7 +65,7 @@ function useSearch() {
     },
     fetcher,
     {
-      keepPreviousData: true,
+      keepPreviousData: false,
       revalidateIfStale: true,
       revalidateOnFocus: false,
       revalidateOnReconnect: false,
@@ -60,7 +82,25 @@ function useSearch() {
 
   const onClearQuery = React.useCallback(() => {
     setQuery('')
+    setDebouncedQuery('')
   }, [])
+
+  React.useEffect(() => {
+    const newQuery = {
+      ...router.query,
+      query: debouncedQuery
+    }
+
+    if (!debouncedQuery) {
+      delete newQuery.query
+    }
+
+    router.replace(
+      { pathname: router.pathname, query: newQuery },
+      { pathname: router.pathname, query: newQuery },
+      { shallow: true }
+    )
+  }, [debouncedQuery])
 
   const isEmpty = results && !results.length
 
@@ -68,6 +108,7 @@ function useSearch() {
     results,
 
     query,
+    debouncedQuery,
     onChangeQuery,
     onClearQuery,
 

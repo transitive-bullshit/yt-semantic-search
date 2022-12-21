@@ -5,6 +5,7 @@ import type { PineconeCaptionMetadata } from '@/server'
 export type SearchResult = {
   id: string
   score: number
+  matchedHtml: string
   metadata: PineconeCaptionMetadata
   // TODO: include offset in url
 }

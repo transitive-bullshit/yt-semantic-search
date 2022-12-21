@@ -21,8 +21,18 @@ export const SearchOptions: React.FC = () => {
     }
   }, [onClearQuery, queryInputRef])
 
+  React.useEffect(() => {
+    if (queryInputRef.current) {
+      queryInputRef.current.focus()
+    }
+  }, [queryInputRef])
+
+  const onSubmit = React.useCallback((event: any) => {
+    event.preventDefault()
+  }, [])
+
   return (
-    <form className={styles.searchOptions}>
+    <form className={styles.searchOptions} onSubmit={onSubmit}>
       <div className={cs(styles.field, styles.queryField)}>
         <label htmlFor='query'>Search</label>
 

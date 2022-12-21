@@ -30,6 +30,7 @@ specifiers:
   postcss: ^8.4.20
   postcss-import: ^15.1.0
   prettier: ^2.8.0
+  pretty-ms: ^8.0.0
   quick-lru: ^6.1.1
   react: ^18.2.0
   react-dom: ^18.2.0
@@ -68,6 +69,7 @@ dependencies:
   openai: 3.1.0
   p-map: 5.5.0
   pinecone-client: 1.0.0
+  pretty-ms: 8.0.0
   quick-lru: 6.1.1
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
@@ -4639,7 +4641,6 @@ packages:
   /parse-ms/3.0.0:
     resolution: {integrity: sha512-Tpb8Z7r7XbbtBTrM9UhpkzzaMrqA2VXMT3YChzYltwV3P3pM6t8wl7TvpMnSTosz1aQAdVib7kdoys7vYOPerw==}
     engines: {node: '>=12'}
-    dev: true
 
   /parse5/6.0.1:
     resolution: {integrity: sha512-Ofn/CTFzRGTTxwpNEs9PP93gXShHcTq255nzRYSKe8AkVpZY7e1fpmTfOyoIvjP5HG7Z2ZM7VS9PPhQGW2pOpw==}
@@ -4857,7 +4858,6 @@ packages:
     engines: {node: '>=14.16'}
     dependencies:
       parse-ms: 3.0.0
-    dev: true
 
   /prop-types/15.8.1:
     resolution: {integrity: sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==}

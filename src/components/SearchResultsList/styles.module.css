@@ -1,0 +1,9 @@
+.searchResultsList {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: var(--gap-2);
+  gap: var(--gap-2);
+}
