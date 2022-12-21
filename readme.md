@@ -12,6 +12,7 @@
 
 - [Intro](#intro)
 - [Example Queries](#example-queries)
+- [Screenshots](#screenshots)
 - [How It Works](#how-it-works)
 - [TODO](#todo)
 - [Feedback](#feedback)
@@ -39,6 +40,14 @@ You can use it to power advanced search across _any YouTube channel or playlist_
 - [intellectual honesty](https://all-in-on-ai.vercel.app/?query=intellectual+honesty)
 - [sbf ftx](https://all-in-on-ai.vercel.app/?query=sbf+ftx)
 - [science corner](https://all-in-on-ai.vercel.app/?query=science+corner)
+
+## Screenshots
+
+<p align="center">
+  <img alt="Desktop light mode" src="/public/images/screenshot-desktop-light.jpg" width="45%">
+&nbsp; &nbsp; &nbsp; &nbsp;
+  <img alt="Desktop dark mode" src="/public/images/screenshot-desktop-dark.jpg" width="45%">
+</p>
 
 ## How It Works
 
