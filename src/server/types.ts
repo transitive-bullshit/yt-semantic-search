@@ -1,11 +1,17 @@
+import type { Storage } from '@google-cloud/storage'
 import type { youtube_v3 } from 'googleapis'
 import type { OpenAIApi } from 'openai'
-import type { PineconeClient as PineconeClientGeneric } from 'pinecone-client'
+import type {
+  PineconeClient as PineconeClientGeneric,
+  Vector
+} from 'pinecone-client'
 
 type YouTubeClient = youtube_v3.Youtube
+type GCPStorage = Storage
 
 export type { youtube_v3 }
 export type { YouTubeClient }
+export type { GCPStorage }
 export type { OpenAIApi }
 
 export interface ScrapedCaptionJSON {
@@ -69,6 +75,9 @@ export type PineconeCaptionMetadata = {
   videoId: string
   text: string
   start: string
+
+  thumbnail?: string
+  preview?: string
 }
 
 export type PineconeCaptionVector = {
@@ -78,3 +87,6 @@ export type PineconeCaptionVector = {
 }
 
 export type PineconeClient = PineconeClientGeneric<PineconeCaptionMetadata>
+export type PineconeVector = Vector<PineconeCaptionMetadata> & {
+  metadata: PineconeCaptionMetadata
+}

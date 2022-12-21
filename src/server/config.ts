@@ -1,11 +1,15 @@
+import dotenv from 'dotenv-safe'
 import { z } from 'zod'
 
-const envSchema = z.object({
-  // general env
-  NODE_ENV: z.enum(['development', 'test', 'production']),
+dotenv.config()
 
+const envSchema = z.object({
   // youtube
   YOUTUBE_API_KEY: z.string().min(1),
+  YOUTUBE_PLAYLIST_ID: z.string().min(1),
+
+  // google cloud
+  GOOGLE_STORAGE_BUCKET: z.string().min(1),
 
   // openai
   OPENAI_API_KEY: z.string().min(1),

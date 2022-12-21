@@ -1,6 +1,7 @@
 import * as React from 'react'
 import cs from 'clsx'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import Link from 'next/link'
 import prettyMilliseconds from 'pretty-ms'
 
@@ -11,7 +12,7 @@ import styles from './styles.module.css'
 export const SearchResult: React.FC<{
   result: types.SearchResult
   className?: string
-}> = React.forwardRef(({ result, className }, ref) => {
+}> = React.forwardRef(function SearchResult({ result, className }, ref) {
   const time = result.metadata.start.split('.')[0]
   const youtubeUrl = `https://youtube.com/watch?v=${result.metadata.videoId}&t=${time}`
   const prettyTime = prettyMilliseconds(parseFloat(time) * 1000, {
@@ -26,20 +27,46 @@ export const SearchResult: React.FC<{
       exit={{ scale: 0, translateY: 50 }}
       ref={ref as any}
     >
-      <Link
-        href={youtubeUrl}
-        target='_blank'
-        rel='noopener noreferrer'
-        aria-label='YouTube'
-        className={cs('link', styles.title)}
-      >
-        <span>
-          {result.metadata.title}{' '}
-          <span className={styles.offset}>@ {prettyTime}</span>
-        </span>
-      </Link>
+      <div className={styles.lhs}>
+        <Link
+          href={youtubeUrl}
+          target='_blank'
+          rel='noopener noreferrer'
+          aria-label='YouTube'
+          className={cs('link', styles.title)}
+        >
+          <h3>
+            {result.metadata.title}{' '}
+            <span className={styles.offset}>@ {prettyTime}</span>
+          </h3>
+        </Link>
 
-      <p dangerouslySetInnerHTML={{ __html: result.matchedHtml }} />
+        <p dangerouslySetInnerHTML={{ __html: result.matchedHtml }} />
+      </div>
+
+      {result.metadata.thumbnail && (
+        <Link
+          href={youtubeUrl}
+          target='_blank'
+          rel='noopener noreferrer'
+          aria-label='YouTube'
+          className={styles.frame}
+        >
+          <Image
+            className={styles.thumbnail}
+            src={result.metadata.thumbnail}
+            alt={`YouTube ${result.metadata.title}`}
+            width={640}
+            height={360}
+            placeholder='blur'
+            blurDataURL={result.metadata.preview}
+          />
+
+          <div className={styles.overlay}>
+            <div className={styles.youtubeButton} />
+          </div>
+        </Link>
+      )}
     </motion.div>
   )
 })

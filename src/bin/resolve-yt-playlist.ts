@@ -1,13 +1,10 @@
 import * as fs from 'node:fs/promises'
 
-import 'cross-fetch/polyfill'
-import dotenv from 'dotenv-safe'
 import { google } from 'googleapis'
 
 import * as types from '@/server/types'
 import * as yt from '@/server/youtube'
-
-dotenv.config()
+import '@/server/config'
 
 async function main() {
   const youtube = google.youtube({
@@ -15,7 +12,7 @@ async function main() {
     auth: process.env.YOUTUBE_API_KEY
   })
 
-  const playlistId = 'PLn5MTSAqaf8peDZQ57QkJBzewJU1aUokl'
+  const playlistId = process.env.YOUTUBE_PLAYLIST_ID
   const playlistDetails = await yt.getPlaylistDetails(playlistId, { youtube })
   const videoIds = playlistDetails.playlistItems
     .filter((playListItem) => playListItem.status?.privacyStatus === 'public')

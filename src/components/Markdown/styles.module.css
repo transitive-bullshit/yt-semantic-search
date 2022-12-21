@@ -71,13 +71,17 @@
   margin-bottom: 1em;
 }
 
+.markdown li a {
+  margin: 0;
+}
+
 .markdown h1,
 .markdown h2,
 .markdown h3,
 .markdown h4,
 .markdown h5,
 .markdown h6 {
-  margin-top: 0.15em;
+  margin-top: 2em;
   margin-bottom: 0.5em;
   font-weight: 600;
   line-height: 1.25;

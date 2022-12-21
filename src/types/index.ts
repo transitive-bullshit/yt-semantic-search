@@ -16,3 +16,10 @@ export const SearchQuerySchema = z.object({
 })
 
 export type SearchQuery = z.infer<typeof SearchQuerySchema>
+
+export const YouTubeThumbnailQuerySchema = z.object({
+  videoId: z.string(),
+  time: z.string().optional()
+})
+
+export type YouTubeThumbnailQuery = z.infer<typeof YouTubeThumbnailQuerySchema>

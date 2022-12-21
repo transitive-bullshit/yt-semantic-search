@@ -1,12 +1,9 @@
-import 'cross-fetch/polyfill'
-import dotenv from 'dotenv-safe'
 import { Configuration, OpenAIApi } from 'openai'
 import { PineconeClient } from 'pinecone-client'
 
 import * as config from '@/lib/config'
 import * as types from '@/server/types'
-
-dotenv.config()
+import '@/server/config'
 
 async function main() {
   const openai = new OpenAIApi(
@@ -21,7 +18,7 @@ async function main() {
     namespace: process.env.PINECONE_NAMESPACE
   })
 
-  const query = 'wisconsin'
+  const query = 'hello world'
   const { data: embed } = await openai.createEmbedding({
     input: query,
     model: config.openaiEmbeddingModel

@@ -1,6 +1,7 @@
 'use client'
 
 import * as React from 'react'
+import { dequal } from 'dequal/lite'
 import { useRouter } from 'next/router'
 import { useDebounce } from 'react-use'
 import useSWR from 'swr'
@@ -95,12 +96,15 @@ function useSearch() {
       delete newQuery.query
     }
 
-    router.replace(
-      { pathname: router.pathname, query: newQuery },
-      { pathname: router.pathname, query: newQuery },
-      { shallow: true }
-    )
-  }, [debouncedQuery])
+    if (!dequal(router.query, newQuery)) {
+      console.log('router use effect')
+      router.replace(
+        { pathname: router.pathname, query: newQuery },
+        { pathname: router.pathname, query: newQuery },
+        { shallow: true }
+      )
+    }
+  }, [router, debouncedQuery])
 
   const isEmpty = results && !results.length
 

@@ -4,6 +4,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: var(--gap-2);
-  gap: var(--gap-2);
+  margin-bottom: var(--gap-h);
+  gap: var(--gap-h);
 }

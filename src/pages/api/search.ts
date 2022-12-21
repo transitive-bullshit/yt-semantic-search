@@ -1,4 +1,3 @@
-import 'cross-fetch/polyfill'
 import { Configuration, OpenAIApi } from 'openai'
 import { PineconeClient } from 'pinecone-client'
 import QuickLRU from 'quick-lru'

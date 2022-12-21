@@ -1,14 +1,11 @@
 import * as fs from 'node:fs/promises'
 
-import 'cross-fetch/polyfill'
-import dotenv from 'dotenv-safe'
 import { Configuration, OpenAIApi } from 'openai'
 import { PineconeClient } from 'pinecone-client'
 
 import * as types from '@/server/types'
+import '@/server/config'
 import { upsertVideoTranscriptsForPlaylist } from '@/server/pinecone'
-
-dotenv.config()
 
 async function main() {
   const openai = new OpenAIApi(
@@ -23,7 +20,7 @@ async function main() {
     namespace: process.env.PINECONE_NAMESPACE
   })
 
-  const playlistId = 'PLn5MTSAqaf8peDZQ57QkJBzewJU1aUokl'
+  const playlistId = process.env.YOUTUBE_PLAYLIST_ID
   const playlistDetailsWithTranscripts: types.PlaylistDetailsWithTranscripts =
     JSON.parse(await fs.readFile(`out/${playlistId}.json`, 'utf-8'))
 
