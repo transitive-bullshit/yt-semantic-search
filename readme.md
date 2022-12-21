@@ -119,4 +119,4 @@ MIT © [Travis Fischer](https://transitivebullsh.it)
 
 If you found this project interesting, please consider [sponsoring me](https://github.com/sponsors/transitive-bullshit) or <a href="https://twitter.com/transitive_bs">following me on twitter <img src="https://storage.googleapis.com/saasify-assets/twitter-logo.svg" alt="twitter" height="24px" align="center"></a>
 
-The API and server costs add up over time, so if you can spare it, [sponsoring me on Github](https://github.com/sponsors/transitive-bullshit) is greatly appreciated. 💕
+The API and server costs add up over time, so if you can spare it, [sponsoring on Github](https://github.com/sponsors/transitive-bullshit) is greatly appreciated. 💕
