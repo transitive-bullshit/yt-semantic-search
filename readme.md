@@ -112,10 +112,12 @@ Feel free to send me feedback, either on [GitHub](https://github.com/transitive-
 
 - Inspired by [Riley Tomasek's project](https://twitter.com/rileytomasek/status/1603854647575384067) for searching the [Huberman YouTube Channel](https://www.youtube.com/@hubermanlab)
 
-## License
-
 Note that this project is not affiliated with the All-In Podcast. It just pulls data from their [YouTube channel](https://www.youtube.com/channel/UCESLZhusAkFfsNsApnjF_Cg) and processes it using AI.
+
+## License
 
 MIT © [Travis Fischer](https://transitivebullsh.it)
 
 If you found this project interesting, please consider [sponsoring me](https://github.com/sponsors/transitive-bullshit) or <a href="https://twitter.com/transitive_bs">following me on twitter <img src="https://storage.googleapis.com/saasify-assets/twitter-logo.svg" alt="twitter" height="24px" align="center"></a>
+
+The API and server costs add up over time, so if you can spare it, [sponsoring me on Github](https://github.com/sponsors/transitive-bullshit) is greatly appreciated. 💕
