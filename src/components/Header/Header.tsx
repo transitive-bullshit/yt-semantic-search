@@ -1,5 +1,6 @@
 import * as React from 'react'
 import cs from 'clsx'
+import Link from 'next/link'
 
 import { ActiveLink } from '@/components/ActiveLink/ActiveLink'
 import { DarkModeToggle } from '@/components/DarkModeToggle/DarkModeToggle'
@@ -11,14 +12,9 @@ export const Header: React.FC<{ className?: string }> = ({ className }) => {
   return (
     <header className={cs(styles.header, className)}>
       <div className={styles.navHeader}>
-        <ActiveLink
-          href='/'
-          className={styles.action}
-          activeClassName={styles.active}
-          aria-label='Logo'
-        >
+        <Link href='/' className={styles.action} aria-label='Logo'>
           <Logo />
-        </ActiveLink>
+        </Link>
 
         <div className={styles.rhs}>
           <ActiveLink

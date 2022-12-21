@@ -10,18 +10,18 @@ import styles from './styles.module.css'
 
 export default function HomePage() {
   return (
-    <Layout>
-      <PageHead />
+    <Search.Provider>
+      <Layout>
+        <PageHead />
 
-      <div className={styles.homePage}>
-        <div className={styles.body}>
-          <Search.Provider>
+        <div className={styles.homePage}>
+          <div className={styles.body}>
             <SearchOptions />
 
             <SearchResults />
-          </Search.Provider>
+          </div>
         </div>
-      </div>
-    </Layout>
+      </Layout>
+    </Search.Provider>
   )
 }

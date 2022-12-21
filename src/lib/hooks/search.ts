@@ -85,7 +85,16 @@ function useSearch() {
     setDebouncedQuery('')
   }, [])
 
-  // Update the route's searchParams ot match
+  // Update local query state if the route reset the query
+  React.useEffect(() => {
+    if (!router.query.query && debouncedQuery) {
+      setQuery('')
+      setDebouncedQuery('')
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [router.query])
+
+  // Update the route's searchParams to match local query state
   React.useEffect(() => {
     const newQuery = {
       ...router.query,
@@ -97,7 +106,6 @@ function useSearch() {
     }
 
     if (!dequal(router.query, newQuery)) {
-      console.log('router use effect')
       router.replace(
         { pathname: router.pathname, query: newQuery },
         { pathname: router.pathname, query: newQuery },
