@@ -20,26 +20,25 @@ export const SearchResults: React.FC = () => {
     return <div>Error loading results</div>
   }
 
-  return (
-    <div className={cs(styles.searchResults)}>
-      {isLoading ? (
-        <div className={styles.detail}>
-          <LoadingSpinner loading={isLoading} />
-        </div>
-      ) : (
-        results &&
-        (isEmpty && !isLoading ? (
-          !debouncedQuery ? (
-            <EmptyQuery />
-          ) : (
-            <EmptyResults />
-          )
-        ) : (
-          <SearchResultsList results={results} />
-        ))
-      )}
-    </div>
-  )
+  let content: React.ReactNode
+
+  if ((isEmpty || !results) && !debouncedQuery) {
+    content = <EmptyQuery />
+  } else if (isLoading) {
+    content = (
+      <div className={styles.detail}>
+        <LoadingSpinner loading={isLoading} />
+      </div>
+    )
+  } else if (results) {
+    if (isEmpty) {
+      content = <EmptyResults />
+    } else {
+      content = <SearchResultsList results={results} />
+    }
+  }
+
+  return <div className={cs(styles.searchResults)}>{content}</div>
 }
 
 export const EmptyQuery: React.FC = () => {
