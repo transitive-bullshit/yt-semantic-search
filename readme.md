@@ -110,7 +110,7 @@ Feel free to send me feedback, either on [GitHub](https://github.com/transitive-
 
 ## Credit
 
-- Inspired by [Riley Tomasek's project](https://twitter.com/rileytomasek/status/1603854647575384067)
+- Inspired by [Riley Tomasek's project](https://twitter.com/rileytomasek/status/1603854647575384067) for searching the [Huberman YouTube Channel](https://www.youtube.com/@hubermanlab)
 
 ## License
 
