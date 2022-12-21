@@ -5,7 +5,8 @@ export const isSafari =
   !isServer && /^((?!chrome|android).)*safari/i.test(navigator.userAgent)
 
 export const title = 'All-In On AI'
-export const description = 'Search the All-In Podcast powered by next-gen AI.'
+export const description =
+  'Search across the All-In Podcast using an advanced semantic search index powered by OpenAI.'
 export const domain = 'all-in-on-ai.vercel.app'
 
 export const author = 'Travis Fischer'
