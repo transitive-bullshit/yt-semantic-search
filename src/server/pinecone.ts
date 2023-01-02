@@ -24,6 +24,14 @@ export async function upsertVideoTranscriptsForPlaylist(
       if (!title) return
 
       const transcript = playlist.transcripts[id]
+
+      // TODO: use whisper for transcripts
+      // if (!title.startsWith('E109')) {
+      //   console.log('TODO: temp', title)
+      //   return
+      // }
+      // console.log(id, title, transcript?.parts.length)
+
       if (!transcript) return
 
       return {
@@ -36,7 +44,7 @@ export async function upsertVideoTranscriptsForPlaylist(
 
   return (
     await pMap(
-      videos.slice(1),
+      videos,
       async (video) => {
         try {
           console.log('processing video', video.id, video.title)
@@ -64,7 +72,7 @@ export async function upsertVideoTranscriptsForPlaylist(
             'error upserting transcripts for video',
             video.id,
             video.title,
-            err.toString()
+            err
           )
         }
       },

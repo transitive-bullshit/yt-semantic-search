@@ -2,9 +2,12 @@ import * as fs from 'node:fs/promises'
 
 import pMap from 'p-map'
 import xml2js from 'xml2js'
+import youtubeTranscript from 'youtube-transcript'
 
 import * as types from './types'
 import got from './got'
+
+// console.log(youtubeTranscript, youtubeTranscript.default)
 
 export async function getPlaylistDetails(
   playlistId: string,
@@ -62,6 +65,43 @@ export async function getTranscriptsForVideos(
 }
 
 export async function getTranscriptForVideo(
+  videoId: string
+): Promise<types.Transcript | null> {
+  const transcript = await getTranscriptForVideoImpl(videoId)
+  if (transcript) {
+    return transcript
+  }
+
+  console.log('transcript fallback', videoId)
+  try {
+    const res = await (youtubeTranscript as any).default.fetchTranscript(
+      videoId,
+      {
+        lang: 'en',
+        country: 'EN'
+      }
+    )
+
+    const parts: types.TranscriptPart[] = res.map((p) => ({
+      text: p.text,
+      start: `${p.offset / 1000}`,
+      dur: `${p.duration / 1000}`
+    }))
+    console.log('transcript fallback success', videoId, parts.length)
+
+    // console.log(JSON.stringify(res, null, 2))
+    return {
+      videoId,
+      parts
+    }
+  } catch (err) {
+    console.warn('transcript error', videoId, err.toString())
+  }
+
+  return null
+}
+
+export async function getTranscriptForVideoImpl(
   videoId: string
 ): Promise<types.Transcript | null> {
   console.log('getTranscriptForVideo', videoId)

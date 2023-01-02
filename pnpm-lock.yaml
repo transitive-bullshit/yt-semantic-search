@@ -56,6 +56,7 @@ specifiers:
   unified: ^10.1.2
   unstated-next: ^1.1.0
   xml2js: ^0.4.23
+  youtube-transcript: ^1.0.4
   zod: ^3.20.2
 
 dependencies:
@@ -95,6 +96,7 @@ dependencies:
   unified: 10.1.2
   unstated-next: 1.1.0
   xml2js: 0.4.23
+  youtube-transcript: 1.0.4
   zod: 3.20.2
 
 devDependencies:
@@ -1416,6 +1418,10 @@ packages:
 
   /ccount/2.0.1:
     resolution: {integrity: sha512-eyrF0jiFpY+3drT6383f1qhkbGsLSifNAjA61IUjZjmLCWjItY6LB9ft9YhoDgwfmclB2zhu51Lc7+95b8NRAg==}
+    dev: false
+
+  /centra/2.6.0:
+    resolution: {integrity: sha512-dgh+YleemrT8u85QL11Z6tYhegAs3MMxsaWAq/oXeAmYJ7VxL3SI9TZtnfaEvNDMAPolj25FXIb3S+HCI4wQaQ==}
     dev: false
 
   /chalk/2.4.2:
@@ -4713,6 +4719,13 @@ packages:
     resolution: {integrity: sha512-F3asv42UuXchdzt+xXqfW1OGlVBe+mxa2mqI0pg5yAHZPvFmY3Y6drSf/GQ1A86WgWEN9Kzh/WrgKa6iGcHXLg==}
     dev: false
 
+  /phin/3.7.0:
+    resolution: {integrity: sha512-DqnVNrpYhKGBZppNKprD+UJylMeEKOZxHgPB+ZP6mGzf3uA2uox4Ep9tUm+rUc8WLIdHT3HcAE4X8fhwQA9JKg==}
+    engines: {node: '>= 8'}
+    dependencies:
+      centra: 2.6.0
+    dev: false
+
   /picocolors/1.0.0:
     resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==}
 
@@ -6330,6 +6343,12 @@ packages:
     resolution: {integrity: sha512-9bnSc/HEW2uRy67wc+T8UwauLuPJVn28jb+GtJY16iiKWyvmYJRXVT4UamsAEGQfPohgr2q4Tq0sQbQlxTfi1g==}
     engines: {node: '>=12.20'}
     dev: true
+
+  /youtube-transcript/1.0.4:
+    resolution: {integrity: sha512-5XtEVlcPyLYHwDQPAE86b9zi3kKBHXfmLqq8N6t6RJvZV9V0+owm/XMBobQszx97fxHIf7PQtwucCkkCaPmpJQ==}
+    dependencies:
+      phin: 3.7.0
+    dev: false
 
   /zod/3.20.2:
     resolution: {integrity: sha512-1MzNQdAvO+54H+EaK5YpyEy0T+Ejo/7YLHS93G3RnYWh5gaotGHwGeN/ZO687qEDU2y4CdStQYXVHIgrUl5UVQ==}

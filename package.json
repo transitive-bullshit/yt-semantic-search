@@ -58,6 +58,7 @@
     "unified": "^10.1.2",
     "unstated-next": "^1.1.0",
     "xml2js": "^0.4.23",
+    "youtube-transcript": "^1.0.4",
     "zod": "^3.20.2"
   },
   "devDependencies": {
