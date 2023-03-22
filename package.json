@@ -22,9 +22,8 @@
     "test:prettier": "prettier '**/*.{js,jsx,ts,tsx}' --check"
   },
   "dependencies": {
-    "@google-cloud/storage": "^6.8.0",
-    "@next/bundle-analyzer": "^13.0.7",
-    "@vercel/analytics": "^0.1.6",
+    "@google-cloud/storage": "^6.9.4",
+    "@vercel/analytics": "^0.1.11",
     "clsx": "^1.2.1",
     "delay": "^5.0.0",
     "dequal": "^2.0.3",
@@ -32,7 +31,7 @@
     "googleapis": "^109.0.1",
     "got": "^12.6.0",
     "lqip-modern": "^2.0.0",
-    "lucide-react": "0.105.0-alpha.4",
+    "lucide-react": "0.127.0",
     "next": "^13.2.4",
     "next-themes": "^0.2.1",
     "openai": "^3.2.1",
@@ -62,10 +61,11 @@
     "zod": "^3.21.4"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^13.2.4",
     "@tailwindcss/typography": "^0.5.9",
     "@trivago/prettier-plugin-sort-imports": "^4.1.1",
     "@types/node": "^18.15.5",
-    "@types/react": "18.0.26",
+    "@types/react": "18.0.28",
     "@types/react-dom": "^18.0.11",
     "autoprefixer": "^10.4.14",
     "ava": "^5.2.0",
