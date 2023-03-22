@@ -58,6 +58,7 @@ export const SearchResult: React.FC<{
             alt={`YouTube ${result.metadata.title}`}
             width={640}
             height={360}
+            unoptimized
             placeholder='blur'
             blurDataURL={result.metadata.preview}
           />
